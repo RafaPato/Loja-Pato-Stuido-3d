@@ -332,6 +332,55 @@
     line-height:1.5;
   }
 
+  .goal-block{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line-strong);
+  }
+  .goal-block h3{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 12px;
+  }
+  .goal-main{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    margin-bottom:12px;
+  }
+  .goal-main .label{ font-size:12px; color:var(--muted); font-weight:500; }
+  .goal-main .value{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:600;
+    font-size:26px;
+    letter-spacing:-0.01em;
+    color:var(--teal);
+    font-variant-numeric:tabular-nums;
+  }
+  .goal-main .value.disabled{ color:var(--muted); }
+  .goal-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .goal-tile{
+    background:var(--surface-2);
+    border-radius:10px;
+    padding:10px 12px;
+  }
+  .goal-tile .label{ font-size:11px; color:var(--muted); margin-bottom:3px; }
+  .goal-tile .val{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+
   footer.note{
     margin-top:28px;
     font-size:12px;
@@ -453,14 +502,36 @@
               <input id="f-fee" inputmode="decimal" placeholder="12" data-key="platformFee">
               <span class="suffix">%</span>
             </div>
-            <span class="help">marketplace, maquininha, gateway</span>
+            <span class="help">comissão percentual do marketplace</span>
           </div>
           <div class="field">
+            <label for="f-fixed-fee">Taxa fixa por venda</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-fixed-fee" inputmode="decimal" placeholder="2,50" data-key="fixedFee">
+            </div>
+            <span class="help">cobrança fixa por pedido (gateway, frete grátis subsidiado)</span>
+          </div>
+          <div class="field full">
             <label for="f-margin">Margem de lucro desejada</label>
             <div class="input-shell">
               <input id="f-margin" inputmode="decimal" placeholder="35" data-key="margin">
               <span class="suffix">%</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2><span class="n">5</span>Meta &amp; produtividade</h2>
+        <div class="fields">
+          <div class="field full">
+            <label for="f-goal">Meta de lucro</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-goal" inputmode="decimal" placeholder="1500,00" data-key="profitGoal">
+            </div>
+            <span class="help">quanto você quer lucrar vendendo esta peça (ex: meta do mês)</span>
           </div>
         </div>
       </div>
@@ -488,19 +559,38 @@
         <div class="receipt-row"><span class="rlabel">Embalagem</span><span class="rfill"></span><span class="rvalue" id="r-pack">R$ 0,00</span></div>
         <div class="receipt-row"><span class="rlabel">Envio</span><span class="rfill"></span><span class="rvalue" id="r-ship">R$ 0,00</span></div>
         <div class="receipt-row total"><span class="rlabel">Custo total</span><span class="rfill"></span><span class="rvalue" id="r-total">R$ 0,00</span></div>
-        <div class="receipt-row fee"><span class="rlabel">+ taxa da plataforma</span><span class="rfill"></span><span class="rvalue" id="r-fee">R$ 0,00</span></div>
+        <div class="receipt-row fee"><span class="rlabel">+ taxa da plataforma (%)</span><span class="rfill"></span><span class="rvalue" id="r-fee">R$ 0,00</span></div>
+        <div class="receipt-row fee"><span class="rlabel">+ taxa fixa por venda</span><span class="rfill"></span><span class="rvalue" id="r-fixed-fee">R$ 0,00</span></div>
         <div class="receipt-row accent"><span class="rlabel">+ seu lucro</span><span class="rfill"></span><span class="rvalue" id="r-profit">R$ 0,00</span></div>
       </div>
 
       <div class="warning-box" id="warning-box" hidden>
         A taxa da plataforma somada à margem chega a 100% ou mais — não existe preço final possível nessas condições. Reduza a taxa ou a margem.
       </div>
+
+      <div class="goal-block">
+        <h3>Meta &amp; produtividade</h3>
+        <div class="goal-main">
+          <span class="label">Quantidade necessária para bater a meta</span>
+          <span class="value" id="goal-quantity">—</span>
+        </div>
+        <div class="goal-grid">
+          <div class="goal-tile">
+            <div class="label">Lucro por hora de impressão</div>
+            <div class="val" id="profit-per-hour">R$ 0,00/h</div>
+          </div>
+          <div class="goal-tile">
+            <div class="label">Horas de impressão para a meta</div>
+            <div class="val" id="goal-hours">—</div>
+          </div>
+        </div>
+      </div>
     </aside>
   </div>
 
   <footer class="note">
     Valores de exemplo de um suporte de celular em PETG — ajuste para a sua peça. O preço sugerido usa
-    <code>preço = custo total ÷ (1 − (taxa% + margem%) / 100)</code>, já que taxa e margem incidem sobre o preço final, não sobre o custo. Os campos ficam salvos neste navegador.
+    <code>preço = (custo total + taxa fixa) ÷ (1 − (taxa% + margem%) / 100)</code>, já que a taxa percentual e a margem incidem sobre o preço final, não sobre o custo, enquanto a taxa fixa é um valor por venda somado ao custo. A quantidade necessária arredonda para cima, já que não dá para vender fração de peça. Os campos ficam salvos neste navegador.
   </footer>
 </div>
 
@@ -516,7 +606,9 @@
     packaging: "3,50",
     shipping: "18,90",
     platformFee: "12",
-    margin: "35"
+    fixedFee: "2,50",
+    margin: "35",
+    profitGoal: "1500,00"
   };
 
   var inputs = Array.prototype.slice.call(document.querySelectorAll("[data-key]"));
@@ -561,6 +653,13 @@
     return null;
   }
 
+  function formatNumber(value, decimals){
+    return value.toLocaleString("pt-BR", {
+      minimumFractionDigits: decimals || 0,
+      maximumFractionDigits: decimals || 0
+    });
+  }
+
   function recalc(){
     var v = readValues();
 
@@ -573,7 +672,9 @@
     var packaging = parseDecimal(v.packaging);
     var shipping = parseDecimal(v.shipping);
     var platformFee = Math.min(parseDecimal(v.platformFee), 100);
+    var fixedFee = parseDecimal(v.fixedFee);
     var margin = Math.min(parseDecimal(v.margin), 100);
+    var profitGoal = parseDecimal(v.profitGoal);
 
     var filamentCost = (weight / 1000) * filamentPrice;
     var machineTotal = printTime * machineCost;
@@ -585,10 +686,16 @@
     var feeOnlyShare = 1 - platformFee / 100;
     var isFeasible = retainedShare > 0;
 
-    var suggestedPrice = isFeasible ? totalCost / retainedShare : null;
+    var suggestedPrice = isFeasible ? (totalCost + fixedFee) / retainedShare : null;
     var feeAmount = suggestedPrice !== null ? suggestedPrice * (platformFee / 100) : null;
     var profitAmount = suggestedPrice !== null ? suggestedPrice * (margin / 100) : null;
-    var minPrice = feeOnlyShare > 0 ? totalCost / feeOnlyShare : null;
+    var minPrice = feeOnlyShare > 0 ? (totalCost + fixedFee) / feeOnlyShare : null;
+
+    var profitPerHour = (profitAmount !== null && printTime > 0) ? profitAmount / printTime : null;
+    var quantityNeeded = (profitAmount !== null && profitAmount > 0 && profitGoal > 0)
+      ? Math.ceil(profitGoal / profitAmount)
+      : null;
+    var hoursNeeded = quantityNeeded !== null ? quantityNeeded * printTime : null;
 
     document.getElementById("r-filament").textContent = formatBRL(toCents(filamentCost));
     document.getElementById("r-machine").textContent = formatBRL(toCents(machineTotal));
@@ -598,13 +705,19 @@
     document.getElementById("r-ship").textContent = formatBRL(toCents(shipping));
     document.getElementById("r-total").textContent = formatBRL(toCents(totalCost));
     document.getElementById("r-fee").textContent = feeAmount !== null ? formatBRL(toCents(feeAmount)) : "—";
+    document.getElementById("r-fixed-fee").textContent = suggestedPrice !== null ? formatBRL(toCents(fixedFee)) : "—";
     document.getElementById("r-profit").textContent = profitAmount !== null ? formatBRL(toCents(profitAmount)) : "—";
     document.getElementById("min-price").textContent = minPrice !== null ? formatBRL(toCents(minPrice)) : "—";
+    document.getElementById("profit-per-hour").textContent = profitPerHour !== null
+      ? formatBRL(toCents(profitPerHour)) + "/h"
+      : "—";
 
     var priceEl = document.getElementById("price-value");
     var pill = document.getElementById("status-pill");
     var pillText = document.getElementById("status-text");
     var warningBox = document.getElementById("warning-box");
+    var goalQuantityEl = document.getElementById("goal-quantity");
+    var goalHoursEl = document.getElementById("goal-hours");
 
     if (isFeasible){
       priceEl.textContent = formatBRL(toCents(suggestedPrice));
@@ -620,6 +733,16 @@
       pill.classList.add("bad");
       pillText.textContent = "Inviável";
       warningBox.hidden = false;
+    }
+
+    if (quantityNeeded !== null){
+      goalQuantityEl.textContent = formatNumber(quantityNeeded, 0) + " unidades";
+      goalQuantityEl.classList.remove("disabled");
+      goalHoursEl.textContent = formatNumber(hoursNeeded, 1) + " h";
+    } else {
+      goalQuantityEl.textContent = profitGoal > 0 ? "—" : "informe uma meta";
+      goalQuantityEl.classList.add("disabled");
+      goalHoursEl.textContent = "—";
     }
 
     saveValues();
