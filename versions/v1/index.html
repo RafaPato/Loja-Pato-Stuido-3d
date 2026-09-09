@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precificador 3D — Loja Pato Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EF;
+    --surface:#FFFFFF;
+    --surface-2:#E2E7E4;
+    --ink:#171A19;
+    --muted:#5A625F;
+    --line:#D2D9D5;
+    --line-strong:#B8C1BC;
+    --accent:#D9622B;
+    --accent-ink:#241005;
+    --teal:#257F76;
+    --good:#2F8F5B;
+    --good-bg:#E4F3EA;
+    --bad:#C1442E;
+    --bad-bg:#FBE9E5;
+    --shadow: 0 1px 2px rgba(23,26,25,0.04), 0 8px 24px -12px rgba(23,26,25,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14171A;
+      --surface:#1B1F22;
+      --surface-2:#23282B;
+      --ink:#ECEFED;
+      --muted:#98A19E;
+      --line:#30363A;
+      --line-strong:#3D4448;
+      --accent:#F0894A;
+      --accent-ink:#1C0E04;
+      --teal:#5FCFC3;
+      --good:#57C98A;
+      --good-bg:rgba(87,201,138,0.12);
+      --bad:#E4785A;
+      --bad-bg:rgba(228,120,90,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171A;
+    --surface:#1B1F22;
+    --surface-2:#23282B;
+    --ink:#ECEFED;
+    --muted:#98A19E;
+    --line:#30363A;
+    --line-strong:#3D4448;
+    --accent:#F0894A;
+    --accent-ink:#1C0E04;
+    --teal:#5FCFC3;
+    --good:#57C98A;
+    --good-bg:rgba(87,201,138,0.12);
+    --bad:#E4785A;
+    --bad-bg:rgba(228,120,90,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ background:var(--bg); }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    line-height:1.45;
+  }
+  ::selection{ background:var(--accent); color:var(--accent-ink); }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:28px 20px 64px;
+  }
+
+  header.page{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  h1{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-weight:700;
+    font-size:clamp(26px, 4vw, 34px);
+    letter-spacing:-0.01em;
+    margin:2px 0 0;
+    text-wrap:balance;
+  }
+  .lede{
+    color:var(--muted);
+    font-size:14.5px;
+    max-width:52ch;
+    margin-top:6px;
+  }
+  .reset-btn{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    color:var(--muted);
+    background:transparent;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    padding:8px 14px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:border-color .15s, color .15s;
+  }
+  .reset-btn:hover{ border-color:var(--teal); color:var(--teal); }
+  .reset-btn:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+
+  .board{
+    display:grid;
+    grid-template-columns: minmax(0,1.15fr) minmax(300px,400px);
+    gap:24px;
+    align-items:start;
+  }
+  @media (max-width: 860px){
+    .board{ grid-template-columns:1fr; }
+  }
+
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+  }
+
+  .inputs-panel{ padding:8px 24px 24px; }
+  .group{ padding:20px 0; border-bottom:1px dashed var(--line-strong); }
+  .group:last-child{ border-bottom:none; }
+  .group h2{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 14px;
+  }
+  .group h2 .n{
+    display:inline-grid; place-items:center;
+    width:20px; height:20px; border-radius:6px;
+    background:var(--surface-2); color:var(--muted);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px; font-weight:500;
+  }
+
+  .fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 14px;
+  }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field.full{ grid-column:1 / -1; }
+  .field label{
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .field .help{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:-2px;
+  }
+  .input-shell{
+    position:relative;
+    display:flex;
+    align-items:center;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    background:var(--bg);
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .input-shell:focus-within{
+    border-color:var(--teal);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 18%, transparent);
+  }
+  .input-shell .prefix{
+    padding:0 0 0 12px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .input-shell input{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:10px 12px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:14px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+    outline:none;
+    min-width:0;
+  }
+  .input-shell input::placeholder{ color:var(--line-strong); }
+  .input-shell .suffix{
+    padding:0 12px 0 0;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  /* Results */
+  .results-panel{
+    position:sticky;
+    top:20px;
+    padding:22px;
+  }
+  .status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:5px 10px 5px 8px;
+    border-radius:999px;
+  }
+  .status-pill .dot{ width:7px; height:7px; border-radius:50%; }
+  .status-pill.ok{ background:var(--good-bg); color:var(--good); }
+  .status-pill.ok .dot{ background:var(--good); }
+  .status-pill.bad{ background:var(--bad-bg); color:var(--bad); }
+  .status-pill.bad .dot{ background:var(--bad); }
+
+  .price-block{ margin:16px 0 18px; }
+  .price-label{
+    font-size:12px; color:var(--muted); font-weight:500;
+    margin-bottom:2px;
+  }
+  .price-value{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:600;
+    font-size:clamp(30px, 4vw, 38px);
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .price-value.disabled{ color:var(--bad); }
+  .min-price{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:12.5px;
+    color:var(--muted);
+    padding-top:10px;
+    margin-top:2px;
+    border-top:1px dashed var(--line-strong);
+  }
+  .min-price b{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:500;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .receipt{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line-strong);
+  }
+  .receipt h3{
+    font-family:"IBM Plex Sans Condensed", sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 10px;
+  }
+  .receipt-row{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    padding:4px 0;
+    font-size:13px;
+  }
+  .receipt-row .rlabel{ color:var(--muted); white-space:nowrap; }
+  .receipt-row .rfill{
+    flex:1;
+    border-bottom:1px dotted var(--line-strong);
+    transform:translateY(-3px);
+  }
+  .receipt-row .rvalue{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:13px;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .receipt-row.total{
+    border-top:1px solid var(--line-strong);
+    margin-top:6px;
+    padding-top:8px;
+    font-weight:600;
+  }
+  .receipt-row.total .rvalue{ font-weight:600; }
+  .receipt-row.accent .rvalue{ color:var(--teal); }
+  .receipt-row.fee .rvalue{ color:var(--muted); }
+
+  .warning-box{
+    margin-top:16px;
+    padding:12px 14px;
+    background:var(--bad-bg);
+    border:1px solid color-mix(in srgb, var(--bad) 35%, transparent);
+    border-radius:10px;
+    color:var(--bad);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+
+  footer.note{
+    margin-top:28px;
+    font-size:12px;
+    color:var(--muted);
+    max-width:70ch;
+  }
+  footer.note code{
+    font-family:"IBM Plex Mono", monospace;
+    background:var(--surface-2);
+    padding:1px 5px;
+    border-radius:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="page">
+    <div>
+      <p class="eyebrow">Ficha de custo &middot; impressão 3D</p>
+      <h1>Precificador 3D</h1>
+      <p class="lede">Some o custo real de imprimir uma peça — filamento, tempo de máquina, falhas, mão de obra e envio — e descubra o preço de venda para a margem que você quer.</p>
+    </div>
+    <button class="reset-btn" id="reset-btn" type="button">Restaurar exemplo</button>
+  </header>
+
+  <div class="board">
+    <section class="panel inputs-panel">
+      <div class="group">
+        <h2><span class="n">1</span>Filamento</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="f-price">Preço do filamento</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-price" inputmode="decimal" placeholder="89,90" data-key="filamentPrice">
+              <span class="suffix">/ kg</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-weight">Peso da peça</label>
+            <div class="input-shell">
+              <input id="f-weight" inputmode="decimal" placeholder="62" data-key="weight">
+              <span class="suffix">g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2><span class="n">2</span>Máquina</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="f-time">Tempo de impressão</label>
+            <div class="input-shell">
+              <input id="f-time" inputmode="decimal" placeholder="4,5" data-key="printTime">
+              <span class="suffix">horas</span>
+            </div>
+            <span class="help">2h30 de impressão = 2,5</span>
+          </div>
+          <div class="field">
+            <label for="f-machine">Custo da impressora</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-machine" inputmode="decimal" placeholder="1,80" data-key="machineCost">
+              <span class="suffix">/ hora</span>
+            </div>
+            <span class="help">energia + depreciação do equipamento</span>
+          </div>
+          <div class="field full">
+            <label for="f-waste">Falhas e reimpressões</label>
+            <div class="input-shell">
+              <input id="f-waste" inputmode="decimal" placeholder="8" data-key="waste">
+              <span class="suffix">%</span>
+            </div>
+            <span class="help">aplicado sobre filamento + tempo de máquina</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2><span class="n">3</span>Mão de obra &amp; logística</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="f-labor">Mão de obra</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-labor" inputmode="decimal" placeholder="6,00" data-key="labor">
+            </div>
+            <span class="help">pós-processamento, montagem, pintura</span>
+          </div>
+          <div class="field">
+            <label for="f-pack">Embalagem</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-pack" inputmode="decimal" placeholder="3,50" data-key="packaging">
+            </div>
+          </div>
+          <div class="field full">
+            <label for="f-ship">Envio</label>
+            <div class="input-shell">
+              <span class="prefix">R$</span>
+              <input id="f-ship" inputmode="decimal" placeholder="18,90" data-key="shipping">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2><span class="n">4</span>Precificação</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="f-fee">Taxa da plataforma</label>
+            <div class="input-shell">
+              <input id="f-fee" inputmode="decimal" placeholder="12" data-key="platformFee">
+              <span class="suffix">%</span>
+            </div>
+            <span class="help">marketplace, maquininha, gateway</span>
+          </div>
+          <div class="field">
+            <label for="f-margin">Margem de lucro desejada</label>
+            <div class="input-shell">
+              <input id="f-margin" inputmode="decimal" placeholder="35" data-key="margin">
+              <span class="suffix">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel results-panel">
+      <span class="status-pill ok" id="status-pill"><span class="dot"></span><span id="status-text">Viável</span></span>
+
+      <div class="price-block">
+        <p class="price-label">Preço de venda sugerido</p>
+        <p class="price-value" id="price-value">R$ 0,00</p>
+      </div>
+
+      <div class="min-price">
+        <span>Preço mínimo (cobre custo + taxa, sem lucro)</span>
+        <b id="min-price">R$ 0,00</b>
+      </div>
+
+      <div class="receipt">
+        <h3>Composição do custo</h3>
+        <div class="receipt-row"><span class="rlabel">Filamento</span><span class="rfill"></span><span class="rvalue" id="r-filament">R$ 0,00</span></div>
+        <div class="receipt-row"><span class="rlabel">Máquina</span><span class="rfill"></span><span class="rvalue" id="r-machine">R$ 0,00</span></div>
+        <div class="receipt-row"><span class="rlabel">Falhas</span><span class="rfill"></span><span class="rvalue" id="r-waste">R$ 0,00</span></div>
+        <div class="receipt-row"><span class="rlabel">Mão de obra</span><span class="rfill"></span><span class="rvalue" id="r-labor">R$ 0,00</span></div>
+        <div class="receipt-row"><span class="rlabel">Embalagem</span><span class="rfill"></span><span class="rvalue" id="r-pack">R$ 0,00</span></div>
+        <div class="receipt-row"><span class="rlabel">Envio</span><span class="rfill"></span><span class="rvalue" id="r-ship">R$ 0,00</span></div>
+        <div class="receipt-row total"><span class="rlabel">Custo total</span><span class="rfill"></span><span class="rvalue" id="r-total">R$ 0,00</span></div>
+        <div class="receipt-row fee"><span class="rlabel">+ taxa da plataforma</span><span class="rfill"></span><span class="rvalue" id="r-fee">R$ 0,00</span></div>
+        <div class="receipt-row accent"><span class="rlabel">+ seu lucro</span><span class="rfill"></span><span class="rvalue" id="r-profit">R$ 0,00</span></div>
+      </div>
+
+      <div class="warning-box" id="warning-box" hidden>
+        A taxa da plataforma somada à margem chega a 100% ou mais — não existe preço final possível nessas condições. Reduza a taxa ou a margem.
+      </div>
+    </aside>
+  </div>
+
+  <footer class="note">
+    Valores de exemplo de um suporte de celular em PETG — ajuste para a sua peça. O preço sugerido usa
+    <code>preço = custo total ÷ (1 − (taxa% + margem%) / 100)</code>, já que taxa e margem incidem sobre o preço final, não sobre o custo. Os campos ficam salvos neste navegador.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var EXAMPLE = {
+    filamentPrice: "89,90",
+    weight: "62",
+    printTime: "4,5",
+    machineCost: "1,80",
+    waste: "8",
+    labor: "6,00",
+    packaging: "3,50",
+    shipping: "18,90",
+    platformFee: "12",
+    margin: "35"
+  };
+
+  var inputs = Array.prototype.slice.call(document.querySelectorAll("[data-key]"));
+  var STORAGE_KEY = "precificador3d.inputs";
+
+  function parseDecimal(value){
+    var n = Number(String(value || "").replace(",", "."));
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  }
+
+  function formatBRL(cents){
+    return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  function toCents(reais){
+    return Math.round(reais * 100);
+  }
+
+  function readValues(){
+    var v = {};
+    inputs.forEach(function(el){ v[el.dataset.key] = el.value; });
+    return v;
+  }
+
+  function applyValues(values){
+    inputs.forEach(function(el){
+      if (values[el.dataset.key] !== undefined) el.value = values[el.dataset.key];
+    });
+  }
+
+  function saveValues(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(readValues()));
+    }catch(e){ /* storage unavailable — ignore */ }
+  }
+
+  function loadValues(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    }catch(e){ /* storage unavailable — ignore */ }
+    return null;
+  }
+
+  function recalc(){
+    var v = readValues();
+
+    var filamentPrice = parseDecimal(v.filamentPrice);
+    var weight = parseDecimal(v.weight);
+    var printTime = parseDecimal(v.printTime);
+    var machineCost = parseDecimal(v.machineCost);
+    var waste = Math.min(parseDecimal(v.waste), 100);
+    var labor = parseDecimal(v.labor);
+    var packaging = parseDecimal(v.packaging);
+    var shipping = parseDecimal(v.shipping);
+    var platformFee = Math.min(parseDecimal(v.platformFee), 100);
+    var margin = Math.min(parseDecimal(v.margin), 100);
+
+    var filamentCost = (weight / 1000) * filamentPrice;
+    var machineTotal = printTime * machineCost;
+    var wasteCost = (filamentCost + machineTotal) * (waste / 100);
+    var productionCost = filamentCost + machineTotal + wasteCost + labor + packaging;
+    var totalCost = productionCost + shipping;
+
+    var retainedShare = 1 - (platformFee + margin) / 100;
+    var feeOnlyShare = 1 - platformFee / 100;
+    var isFeasible = retainedShare > 0;
+
+    var suggestedPrice = isFeasible ? totalCost / retainedShare : null;
+    var feeAmount = suggestedPrice !== null ? suggestedPrice * (platformFee / 100) : null;
+    var profitAmount = suggestedPrice !== null ? suggestedPrice * (margin / 100) : null;
+    var minPrice = feeOnlyShare > 0 ? totalCost / feeOnlyShare : null;
+
+    document.getElementById("r-filament").textContent = formatBRL(toCents(filamentCost));
+    document.getElementById("r-machine").textContent = formatBRL(toCents(machineTotal));
+    document.getElementById("r-waste").textContent = formatBRL(toCents(wasteCost));
+    document.getElementById("r-labor").textContent = formatBRL(toCents(labor));
+    document.getElementById("r-pack").textContent = formatBRL(toCents(packaging));
+    document.getElementById("r-ship").textContent = formatBRL(toCents(shipping));
+    document.getElementById("r-total").textContent = formatBRL(toCents(totalCost));
+    document.getElementById("r-fee").textContent = feeAmount !== null ? formatBRL(toCents(feeAmount)) : "—";
+    document.getElementById("r-profit").textContent = profitAmount !== null ? formatBRL(toCents(profitAmount)) : "—";
+    document.getElementById("min-price").textContent = minPrice !== null ? formatBRL(toCents(minPrice)) : "—";
+
+    var priceEl = document.getElementById("price-value");
+    var pill = document.getElementById("status-pill");
+    var pillText = document.getElementById("status-text");
+    var warningBox = document.getElementById("warning-box");
+
+    if (isFeasible){
+      priceEl.textContent = formatBRL(toCents(suggestedPrice));
+      priceEl.classList.remove("disabled");
+      pill.classList.remove("bad");
+      pill.classList.add("ok");
+      pillText.textContent = "Viável";
+      warningBox.hidden = true;
+    } else {
+      priceEl.textContent = "—";
+      priceEl.classList.add("disabled");
+      pill.classList.remove("ok");
+      pill.classList.add("bad");
+      pillText.textContent = "Inviável";
+      warningBox.hidden = false;
+    }
+
+    saveValues();
+  }
+
+  inputs.forEach(function(el){
+    el.addEventListener("input", recalc);
+  });
+
+  document.getElementById("reset-btn").addEventListener("click", function(){
+    applyValues(EXAMPLE);
+    recalc();
+  });
+
+  var stored = loadValues();
+  applyValues(stored || EXAMPLE);
+  recalc();
+})();
+</script>
+</body>
+</html>

@@ -3,7 +3,10 @@
 Calculadora de preços para peças de impressão 3D. Ferramenta avulsa em HTML puro (sem build,
 sem dependências de servidor) — abra o arquivo direto no navegador ou publique via GitHub Pages.
 
-## O que ela calcula
+`index.html`, na raiz, é sempre a **versão mais recente**. Versões anteriores ficam preservadas
+em `versions/`, veja o histórico abaixo.
+
+## O que ela calcula (v2 — atual)
 
 A partir dos custos de produção, sugere o preço de venda para a margem de lucro desejada:
 
@@ -12,17 +15,22 @@ A partir dos custos de produção, sugere o preço de venda para a margem de luc
 - **Falhas e reimpressões**: % aplicado sobre filamento + tempo de máquina
 - **Mão de obra**: pós-processamento, montagem, pintura
 - **Embalagem** e **envio**
-- **Taxa da plataforma/marketplace** e **margem de lucro desejada**, ambas como % do preço final
+- **Taxa da plataforma/marketplace** (%) e **taxa fixa por venda** (R$) — ex: gateway de pagamento
+- **Margem de lucro desejada** (%)
+- **Meta de lucro** (R$) → calcula a **quantidade necessária** de vendas para bater a meta
+  (arredondada para cima) e as horas de impressão correspondentes
+- **Lucro por hora de impressão**, para comparar a produtividade entre peças diferentes
 
 O preço sugerido usa:
 
 ```
-preço = custo total ÷ (1 − (taxa% + margem%) / 100)
+preço = (custo total + taxa fixa) ÷ (1 − (taxa% + margem%) / 100)
 ```
 
-já que a taxa da plataforma e a margem incidem sobre o preço de venda, não sobre o custo. A
-página também mostra o preço mínimo (que só cobre custo + taxa, sem lucro) e avisa quando
-taxa + margem somam 100% ou mais, situação em que não existe preço final possível.
+já que a taxa percentual da plataforma e a margem incidem sobre o preço de venda (não sobre o
+custo), enquanto a taxa fixa é somada ao custo antes da divisão. A página também mostra o preço
+mínimo (que só cobre custo + taxas, sem lucro) e avisa quando taxa% + margem somam 100% ou mais,
+situação em que não existe preço final possível.
 
 ## Como usar
 
@@ -32,3 +40,14 @@ navegador entre uma visita e outra.
 
 Para publicar como página web, ative o GitHub Pages deste repositório apontando para a branch
 `main` / pasta raiz.
+
+## Histórico de versões
+
+| Versão | Pasta | O que tem |
+| --- | --- | --- |
+| **v2** (atual) | [`versions/v2`](./versions/v2) | Tudo da v1, mais taxa fixa por venda, meta de lucro, quantidade necessária e lucro por hora de impressão |
+| v1 | [`versions/v1`](./versions/v1) | Filamento, máquina, falhas, mão de obra, embalagem, envio, taxa da plataforma (%) e margem de lucro |
+
+`versions/vN` são snapshots congelados de cada versão — não são atualizados depois de publicados.
+Use-os para comparar mudanças ou voltar a uma versão anterior; o `index.html` da raiz é sempre a
+cópia da versão mais recente.
