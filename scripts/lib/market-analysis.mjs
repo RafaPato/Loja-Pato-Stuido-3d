@@ -58,11 +58,32 @@ export function discountRate(listings) {
   return discounted / listings.length;
 }
 
+/**
+ * Anúncios com mais unidades vendidas historicamente na amostra — sinal de popularidade/
+ * confiabilidade (não é o mesmo que "visitas ao perfil", que a API pública não expõe para
+ * terceiros; sold_quantity é o único sinal de demanda que a busca pública do Mercado Livre
+ * retorna).
+ */
+export function mostSoldListings(listings, limit = 5) {
+  return listings
+    .filter((l) => Number.isFinite(l.soldQuantity) && l.soldQuantity > 0)
+    .sort((a, b) => b.soldQuantity - a.soldQuantity)
+    .slice(0, limit)
+    .map((l) => ({
+      title: l.title || null,
+      sellerName: l.sellerName || "Vendedor não identificado",
+      soldQuantity: l.soldQuantity,
+      priceCents: l.priceCents,
+      url: l.url || null,
+    }));
+}
+
 export function analyzeMaterial(listings) {
   return {
     sampleSize: listings.length,
     priceDistribution: analyzePriceDistribution(listings),
     topSellers: rankSellers(listings),
     discountRate: discountRate(listings),
+    mostSold: mostSoldListings(listings),
   };
 }

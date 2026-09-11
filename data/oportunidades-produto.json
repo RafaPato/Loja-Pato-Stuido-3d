@@ -1,0 +1,15 @@
+{
+  "generatedAt": null,
+  "products": [
+    {
+      "productId": "suporte-celular",
+      "name": "Suporte de celular de mesa (EXEMPLO — ajuste peso/tempo reais)",
+      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+    },
+    {
+      "productId": "organizador-mesa",
+      "name": "Organizador de mesa (EXEMPLO — ajuste peso/tempo reais)",
+      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+    }
+  ]
+}

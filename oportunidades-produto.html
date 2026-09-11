@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oportunidades de produto — Loja Pato Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EF; --surface:#FFFFFF; --surface-2:#E2E7E4; --ink:#171A19; --muted:#5A625F;
+    --line:#D2D9D5; --line-strong:#B8C1BC; --accent:#D9622B; --accent-ink:#241005; --teal:#257F76;
+    --good:#2F8F5B; --good-bg:#E4F3EA; --bad:#C1442E; --bad-bg:#FBE9E5;
+    --shadow: 0 1px 2px rgba(23,26,25,0.04), 0 8px 24px -12px rgba(23,26,25,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14171A; --surface:#1B1F22; --surface-2:#23282B; --ink:#ECEFED; --muted:#98A19E;
+      --line:#30363A; --line-strong:#3D4448; --accent:#F0894A; --accent-ink:#1C0E04;
+      --teal:#5FCFC3; --good:#57C98A; --good-bg:rgba(87,201,138,0.12);
+      --bad:#E4785A; --bad-bg:rgba(228,120,90,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171A; --surface:#1B1F22; --surface-2:#23282B; --ink:#ECEFED; --muted:#98A19E;
+    --line:#30363A; --line-strong:#3D4448; --accent:#F0894A; --accent-ink:#1C0E04;
+    --teal:#5FCFC3; --good:#57C98A; --good-bg:rgba(87,201,138,0.12);
+    --bad:#E4785A; --bad-bg:rgba(228,120,90,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ background:var(--bg); }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, sans-serif; line-height:1.45; }
+  ::selection{ background:var(--accent); color:var(--accent-ink); }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:28px 20px 64px; }
+
+  header.page{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:12px; }
+  .eyebrow{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:600; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); }
+  h1{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:700; font-size:clamp(26px, 4vw, 34px); letter-spacing:-0.01em; margin:2px 0 0; text-wrap:balance; }
+  .lede{ color:var(--muted); font-size:14.5px; max-width:64ch; margin-top:6px; }
+  .nav-links{ display:flex; gap:8px; flex-wrap:wrap; }
+  .nav-link{
+    font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:600; font-size:12.5px;
+    letter-spacing:0.02em; color:var(--muted); background:transparent;
+    border:1px solid var(--line-strong); border-radius:999px; padding:8px 14px;
+    text-decoration:none; white-space:nowrap; transition:border-color .15s, color .15s;
+  }
+  .nav-link:hover{ border-color:var(--teal); color:var(--teal); }
+
+  .updated-at{ font-size:12px; color:var(--muted); margin:14px 0 20px; }
+
+  .disclaimer{
+    background:var(--surface-2); border-radius:10px; padding:12px 14px; font-size:12.5px;
+    color:var(--muted); margin-bottom:20px; line-height:1.6;
+  }
+
+  .product{ background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px 24px 24px; margin-bottom:20px; }
+  .product h2{ font-family:"IBM Plex Sans Condensed", sans-serif; font-size:15px; font-weight:600; color:var(--ink); margin:0 0 4px; }
+  .product h3{ font-family:"IBM Plex Sans Condensed", sans-serif; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin:18px 0 10px; }
+  .search-query{ font-size:12.5px; color:var(--muted); margin:0 0 16px; font-family:"IBM Plex Mono", monospace; }
+  .empty-note{ color:var(--muted); font-style:italic; font-size:13.5px; }
+
+  .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:12px; margin-bottom:6px; }
+  .stat-tile{ background:var(--surface-2); border-radius:10px; padding:10px 12px; }
+  .stat-tile .label{ font-size:11px; color:var(--muted); margin-bottom:3px; }
+  .stat-tile .val{ font-family:"IBM Plex Mono", monospace; font-weight:600; font-size:16px; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .stat-tile.margin-good .val{ color:var(--good); }
+  .stat-tile.margin-bad .val{ color:var(--bad); }
+
+  .assumptions{ font-size:12px; color:var(--muted); margin:10px 0 0; }
+  .assumptions code{ font-family:"IBM Plex Mono", monospace; background:var(--surface-2); padding:1px 5px; border-radius:4px; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  thead th{ text-align:left; font-family:"IBM Plex Sans Condensed", sans-serif; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); padding:0 8px 8px; border-bottom:1px solid var(--line-strong); }
+  tbody td{ padding:8px; border-bottom:1px dashed var(--line); }
+  tbody tr:last-child td{ border-bottom:none; }
+  .num{ font-family:"IBM Plex Mono", monospace; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  a.source-link{ color:var(--teal); text-decoration:none; }
+  a.source-link:hover{ text-decoration:underline; }
+
+  footer.note{ margin-top:28px; font-size:12px; color:var(--muted); max-width:70ch; }
+  footer.note code{ font-family:"IBM Plex Mono", monospace; background:var(--surface-2); padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="page">
+    <div>
+      <p class="eyebrow">Vendas &middot; oportunidade</p>
+      <h1>Oportunidades de produto</h1>
+      <p class="lede">O que já vende no Mercado Livre para peças parecidas, e uma margem bruta estimada comparando o preço praticado com um custo de produção simplificado.</p>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="./analise-mercado.html">Análise de mercado</a>
+      <a class="nav-link" href="./comparador-precos.html">Comparador de preços</a>
+      <a class="nav-link" href="./index.html">Precificador 3D</a>
+    </div>
+  </header>
+
+  <p class="updated-at" id="updated-at"></p>
+
+  <div class="disclaimer">
+    A margem aqui é uma <b>triagem rápida</b>, não o preço final: usa só custo de filamento + tempo
+    de máquina (premissas de peso/tempo cadastradas em <code>scripts/lib/product-ideas.mjs</code>,
+    não medidas reais da peça) — sem mão de obra, embalagem, envio ou taxa de plataforma. Para o
+    cálculo completo de uma peça específica, use o <a href="./index.html">Precificador 3D</a>.
+    "Vendidos" vem de <code>sold_quantity</code> da busca pública do Mercado Livre — não existe
+    "visitas ao perfil" disponível para anúncios de terceiros.
+  </div>
+
+  <div id="products"></div>
+
+  <footer class="note">
+    Dado do Mercado Livre, via <code>data/oportunidades-produto.json</code>, atualizado semanalmente
+    junto com a análise de mercado (<code>.github/workflows/market-analysis.yml</code>).
+  </footer>
+</div>
+
+<script>
+(function(){
+  function formatBRL(cents){
+    if (typeof cents !== "number" || !isFinite(cents)) return "—";
+    return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  function el(tag, className, text){
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function safeLink(url, text){
+    try {
+      var parsed = new URL(url);
+      if (parsed.protocol === "https:") {
+        var a = el("a", "source-link", text);
+        a.href = parsed.href; a.target = "_blank"; a.rel = "noopener noreferrer";
+        return a;
+      }
+    } catch (e) { /* URL inválida — cai para texto simples */ }
+    return el("span", null, text);
+  }
+
+  function renderSellersOrSold(title, headers, rows, mapRow){
+    var section = document.createDocumentFragment();
+    section.appendChild(el("h3", null, title));
+    if (!rows || rows.length === 0) {
+      section.appendChild(el("p", "empty-note", "Sem dado nesta amostra."));
+      return section;
+    }
+    var table = el("table");
+    var thead = el("thead");
+    var headRow = el("tr");
+    headers.forEach(function(h){ headRow.appendChild(el("th", null, h)); });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+    var tbody = el("tbody");
+    rows.forEach(function(row){ tbody.appendChild(mapRow(row)); });
+    table.appendChild(tbody);
+    section.appendChild(table);
+    return section;
+  }
+
+  function renderProduct(product){
+    var wrap = el("div", "product");
+    wrap.appendChild(el("h2", null, product.name || product.productId));
+    if (product.searchQuery) {
+      wrap.appendChild(el("p", "search-query", "busca: \"" + product.searchQuery + "\""));
+    }
+
+    if (product.error) {
+      wrap.appendChild(el("p", "empty-note", product.error));
+      return wrap;
+    }
+
+    var dist = (product.marketAnalysis && product.marketAnalysis.priceDistribution) || {};
+    var margin = product.estimatedGrossMargin;
+    var grid = el("div", "stat-grid");
+    [
+      ["Amostra", (product.marketAnalysis ? product.marketAnalysis.sampleSize : 0) + " anúncios"],
+      ["Preço mediano", formatBRL(dist.medianCents)],
+      ["Custo estimado", formatBRL(product.estimatedProductionCostCents)],
+      ["Margem bruta estimada", margin ? formatBRL(margin.marginCents) + " (" + margin.marginPct.toFixed(0) + "%)" : "— (falta dado)"]
+    ].forEach(function(pair, i){
+      var extraClass = i === 3 && margin ? (margin.marginCents > 0 ? " margin-good" : " margin-bad") : "";
+      var tile = el("div", "stat-tile" + extraClass);
+      tile.appendChild(el("div", "label", pair[0]));
+      tile.appendChild(el("div", "val", pair[1]));
+      grid.appendChild(tile);
+    });
+    wrap.appendChild(grid);
+
+    if (product.assumptions) {
+      var a = product.assumptions;
+      wrap.appendChild(el(
+        "p", "assumptions",
+        "Premissas: " + (a.estimatedWeightGrams != null ? a.estimatedWeightGrams + "g" : "peso ?") +
+        ", " + (a.estimatedPrintHours != null ? a.estimatedPrintHours + "h de impressão" : "tempo ?") +
+        ", filamento a " + (a.filamentPricePerKgCentsUsed != null ? formatBRL(a.filamentPricePerKgCentsUsed) + "/kg" : "preço não confirmado hoje (custo não calculável)") +
+        ", máquina a " + formatBRL(a.machineCostPerHourCents) + "/h."
+      ));
+    }
+
+    wrap.appendChild(renderSellersOrSold(
+      "Vendedores mais presentes na amostra",
+      ["Vendedor", "Anúncios"],
+      product.marketAnalysis && product.marketAnalysis.topSellers,
+      function(seller){
+        var row = el("tr");
+        row.appendChild(el("td", null, seller.sellerName));
+        row.appendChild(el("td", "num", String(seller.listingCount)));
+        return row;
+      }
+    ));
+
+    wrap.appendChild(renderSellersOrSold(
+      "Mais vendidos na amostra",
+      ["Anúncio", "Vendedor", "Qtd. vendida", "Preço"],
+      product.marketAnalysis && product.marketAnalysis.mostSold,
+      function(item){
+        var row = el("tr");
+        var titleCell = el("td");
+        titleCell.appendChild(item.url ? safeLink(item.url, item.title || item.url) : el("span", null, item.title || "—"));
+        row.appendChild(titleCell);
+        row.appendChild(el("td", null, item.sellerName));
+        row.appendChild(el("td", "num", String(item.soldQuantity)));
+        row.appendChild(el("td", "num", formatBRL(item.priceCents)));
+        return row;
+      }
+    ));
+
+    return wrap;
+  }
+
+  function render(data){
+    var updatedEl = document.getElementById("updated-at");
+    if (data.generatedAt) {
+      var d = new Date(data.generatedAt);
+      updatedEl.textContent = isNaN(d.getTime()) ? "" : "Atualizado em " + d.toLocaleString("pt-BR");
+    } else {
+      updatedEl.textContent = "Ainda não rodou pela primeira vez.";
+    }
+
+    var container = document.getElementById("products");
+    container.innerHTML = "";
+    (data.products || []).forEach(function(product){
+      container.appendChild(renderProduct(product));
+    });
+  }
+
+  fetch("./data/oportunidades-produto.json", { cache: "no-store" })
+    .then(function(res){
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(render)
+    .catch(function(err){
+      var container = document.getElementById("products");
+      container.appendChild(el("p", "empty-note", "Não foi possível carregar data/oportunidades-produto.json (" + err.message + ")."));
+    });
+})();
+</script>
+</body>
+</html>

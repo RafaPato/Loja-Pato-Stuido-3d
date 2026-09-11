@@ -1,6 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { analyzePriceDistribution, rankSellers, discountRate, analyzeMaterial } from "./market-analysis.mjs";
+import {
+  analyzePriceDistribution,
+  rankSellers,
+  discountRate,
+  mostSoldListings,
+  analyzeMaterial,
+} from "./market-analysis.mjs";
 
 test("analyzePriceDistribution calcula min/mediana/max/percentis", () => {
   const listings = [100, 200, 300, 400, 500].map((priceCents) => ({ priceCents }));
@@ -56,14 +62,33 @@ test("discountRate retorna null para amostra vazia", () => {
   assert.equal(discountRate([]), null);
 });
 
-test("analyzeMaterial combina as três análises", () => {
+test("mostSoldListings ordena por quantidade vendida e ignora sem dado", () => {
   const listings = [
-    { priceCents: 100, sellerName: "A", originalPriceCents: 150 },
-    { priceCents: 200, sellerName: "B", originalPriceCents: null },
+    { title: "A", sellerName: "Loja A", soldQuantity: 50, priceCents: 100, url: "https://a" },
+    { title: "B", sellerName: "Loja B", soldQuantity: null, priceCents: 200, url: "https://b" },
+    { title: "C", sellerName: "Loja C", soldQuantity: 500, priceCents: 300, url: "https://c" },
+  ];
+  const result = mostSoldListings(listings, 2);
+  assert.deepEqual(result, [
+    { title: "C", sellerName: "Loja C", soldQuantity: 500, priceCents: 300, url: "https://c" },
+    { title: "A", sellerName: "Loja A", soldQuantity: 50, priceCents: 100, url: "https://a" },
+  ]);
+});
+
+test("mostSoldListings retorna vazio quando nenhum anúncio tem quantidade vendida", () => {
+  assert.deepEqual(mostSoldListings([{ soldQuantity: null }, { soldQuantity: 0 }]), []);
+});
+
+test("analyzeMaterial combina as quatro análises", () => {
+  const listings = [
+    { priceCents: 100, sellerName: "A", originalPriceCents: 150, soldQuantity: 10 },
+    { priceCents: 200, sellerName: "B", originalPriceCents: null, soldQuantity: 5 },
   ];
   const result = analyzeMaterial(listings);
   assert.equal(result.sampleSize, 2);
   assert.equal(result.priceDistribution.count, 2);
   assert.equal(result.topSellers.length, 2);
   assert.equal(result.discountRate, 0.5);
+  assert.equal(result.mostSold.length, 2);
+  assert.equal(result.mostSold[0].soldQuantity, 10);
 });

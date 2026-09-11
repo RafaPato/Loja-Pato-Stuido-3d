@@ -79,10 +79,34 @@ de uma amostra maior de anúncios do Mercado Livre (até 50 por consulta).
   descartado por risco de Termos de Uso. A leitura de Shopee é qualitativa, via busca na web, feita
   por uma rotina separada (fora deste repositório), não por este motor.
 - **Estatística**: `scripts/lib/market-analysis.mjs` (percentis de preço, ranking de vendedores,
-  taxa de desconto), coberto por testes (`node --test scripts/lib/*.test.mjs`).
+  taxa de desconto, e mais vendidos por `sold_quantity`), coberto por testes
+  (`node --test scripts/lib/*.test.mjs`).
+- **"Mais vendidos"** usa `sold_quantity` — o único sinal de demanda que a busca pública do
+  Mercado Livre expõe. Não existe "visitas ao perfil" disponível para anúncios de terceiros (só o
+  próprio dono da loja vê isso, via API autenticada com escopo de vendas).
 - Reaproveita o mesmo `MERCADO_LIVRE_ACCESS_TOKEN` do comparador de preços — sem o secret
   configurado, o Mercado Livre pode recusar a busca (403) e a página mostra o motivo em vez de
   dado vazio silencioso.
+
+## Oportunidades de produto
+
+`oportunidades-produto.html` vai um passo além da análise de insumo: para peças 3D genéricas
+cadastradas em `scripts/lib/product-ideas.mjs`, busca o que já se vende parecido no Mercado Livre
+e estima uma **margem bruta simplificada**, comparando o preço mediano observado com um custo de
+produção baseado em premissas de peso/tempo de impressão que você cadastra.
+
+- **Isto não é o preço final da peça** — só filamento + tempo de máquina entram na conta (sem mão
+  de obra, embalagem, envio ou taxa de plataforma). Para o cálculo completo de uma peça
+  específica, use o [Precificador 3D](./index.html). Trate a margem aqui como triagem: "vale a
+  pena olhar melhor" ou não.
+- **Premissas editáveis**: cada item em `scripts/lib/product-ideas.mjs` tem `estimatedWeightGrams`
+  e `estimatedPrintHours` — são só exemplos até você editar com os valores reais da sua peça. O
+  custo do filamento usado na conta vem do menor preço confirmado hoje em `data/precos.json` para
+  o `materialId` do item (PLA ou PETG).
+- **Dados**: `data/oportunidades-produto.json`, gerado por
+  `scripts/analyze-product-opportunities.mjs`, atualizado no mesmo workflow semanal da análise de
+  mercado.
+- **Estatística de custo/margem**: `scripts/lib/margin-analysis.mjs`, coberto por testes.
 
 ## Histórico de versões
 
