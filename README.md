@@ -88,6 +88,17 @@ de uma amostra maior de anúncios do Mercado Livre (até 50 por consulta).
   configurado, o Mercado Livre pode recusar a busca (403) e a página mostra o motivo em vez de
   dado vazio silencioso.
 
+> **Limitação conhecida (confirmada em produção, não é bug deste repositório):** o endpoint
+> `/sites/MLB/search` da API do Mercado Livre está devolvendo 403 mesmo com um
+> `MERCADO_LIVRE_ACCESS_TOKEN` válido — testamos com um token real, confirmamos os escopos
+> retornados pela troca OAuth, e outros endpoints autenticados funcionam normalmente. É um
+> problema relatado por diversos desenvolvedores desde o início de 2026 (não específico deste
+> projeto): o endpoint parece exigir participação em algum programa de parceiros do Mercado Livre,
+> sem confirmação oficial da política atual. Enquanto isso não muda, `analise-mercado.html` e
+> `oportunidades-produto.html` vão mostrar o erro 403 em vez de dado real — o motor está pronto e
+> correto, só bloqueado pelo lado da API. A cobertura real de preços continua vindo da rotina de
+> monitoramento diário por busca na web (fora deste repositório).
+
 ## Oportunidades de produto
 
 `oportunidades-produto.html` vai um passo além da análise de insumo: para peças 3D genéricas
