@@ -64,6 +64,26 @@ quantidades diferentes.
   coletor roda com acesso à rede em CI. Rodar `npm test` (ou `node --test scripts/lib/*.test.mjs`)
   cobre essas validações e a heurística de normalização de unidade.
 
+## Análise de mercado
+
+`analise-mercado.html` vai além do menor preço: mostra distribuição de preço (mínimo, mediana,
+máximo), ranking de vendedores mais presentes e % de anúncios em promoção, por material, a partir
+de uma amostra maior de anúncios do Mercado Livre (até 50 por consulta).
+
+- **Dados**: `data/analise-mercado.json`, gerado por `scripts/analyze-market.mjs` e atualizado
+  semanalmente pelo workflow [`market-analysis.yml`](.github/workflows/market-analysis.yml) — é
+  mais pesado que o log diário de preço, por isso não roda todo dia.
+- **Por que só Mercado Livre**: é a única das duas plataformas-alvo com API pública de busca. A
+  Shopee não tem API de busca de mercado para terceiros (só Open Platform para a própria loja, ou
+  Affiliate API para produtos que você promove) — usar um scraper de terceiro contra ela foi
+  descartado por risco de Termos de Uso. A leitura de Shopee é qualitativa, via busca na web, feita
+  por uma rotina separada (fora deste repositório), não por este motor.
+- **Estatística**: `scripts/lib/market-analysis.mjs` (percentis de preço, ranking de vendedores,
+  taxa de desconto), coberto por testes (`node --test scripts/lib/*.test.mjs`).
+- Reaproveita o mesmo `MERCADO_LIVRE_ACCESS_TOKEN` do comparador de preços — sem o secret
+  configurado, o Mercado Livre pode recusar a busca (403) e a página mostra o motivo em vez de
+  dado vazio silencioso.
+
 ## Histórico de versões
 
 | Versão | Pasta | O que tem |

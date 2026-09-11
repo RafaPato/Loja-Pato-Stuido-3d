@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de mercado — Loja Pato Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EF; --surface:#FFFFFF; --surface-2:#E2E7E4; --ink:#171A19; --muted:#5A625F;
+    --line:#D2D9D5; --line-strong:#B8C1BC; --accent:#D9622B; --accent-ink:#241005; --teal:#257F76;
+    --good:#2F8F5B; --good-bg:#E4F3EA; --bad:#C1442E; --bad-bg:#FBE9E5;
+    --shadow: 0 1px 2px rgba(23,26,25,0.04), 0 8px 24px -12px rgba(23,26,25,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14171A; --surface:#1B1F22; --surface-2:#23282B; --ink:#ECEFED; --muted:#98A19E;
+      --line:#30363A; --line-strong:#3D4448; --accent:#F0894A; --accent-ink:#1C0E04;
+      --teal:#5FCFC3; --good:#57C98A; --good-bg:rgba(87,201,138,0.12);
+      --bad:#E4785A; --bad-bg:rgba(228,120,90,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171A; --surface:#1B1F22; --surface-2:#23282B; --ink:#ECEFED; --muted:#98A19E;
+    --line:#30363A; --line-strong:#3D4448; --accent:#F0894A; --accent-ink:#1C0E04;
+    --teal:#5FCFC3; --good:#57C98A; --good-bg:rgba(87,201,138,0.12);
+    --bad:#E4785A; --bad-bg:rgba(228,120,90,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ background:var(--bg); }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, sans-serif; line-height:1.45; }
+  ::selection{ background:var(--accent); color:var(--accent-ink); }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:28px 20px 64px; }
+
+  header.page{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:12px; }
+  .eyebrow{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:600; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); }
+  h1{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:700; font-size:clamp(26px, 4vw, 34px); letter-spacing:-0.01em; margin:2px 0 0; text-wrap:balance; }
+  .lede{ color:var(--muted); font-size:14.5px; max-width:62ch; margin-top:6px; }
+  .nav-links{ display:flex; gap:8px; flex-wrap:wrap; }
+  .nav-link{
+    font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:600; font-size:12.5px;
+    letter-spacing:0.02em; color:var(--muted); background:transparent;
+    border:1px solid var(--line-strong); border-radius:999px; padding:8px 14px;
+    text-decoration:none; white-space:nowrap; transition:border-color .15s, color .15s;
+  }
+  .nav-link:hover{ border-color:var(--teal); color:var(--teal); }
+
+  .updated-at{ font-size:12px; color:var(--muted); margin:14px 0 20px; }
+
+  .material{ background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px 24px 24px; margin-bottom:20px; }
+  .material h2{ font-family:"IBM Plex Sans Condensed", sans-serif; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin:0 0 4px; }
+  .material-name{ font-size:13.5px; color:var(--muted); margin:0 0 16px; }
+  .empty-note{ color:var(--muted); font-style:italic; font-size:13.5px; }
+
+  .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:12px; margin-bottom:18px; }
+  .stat-tile{ background:var(--surface-2); border-radius:10px; padding:10px 12px; }
+  .stat-tile .label{ font-size:11px; color:var(--muted); margin-bottom:3px; }
+  .stat-tile .val{ font-family:"IBM Plex Mono", monospace; font-weight:600; font-size:16px; color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  thead th{ text-align:left; font-family:"IBM Plex Sans Condensed", sans-serif; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); padding:0 8px 8px; border-bottom:1px solid var(--line-strong); }
+  tbody td{ padding:8px; border-bottom:1px dashed var(--line); }
+  tbody tr:last-child td{ border-bottom:none; }
+  .num{ font-family:"IBM Plex Mono", monospace; font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+  .sample-note{ font-size:11.5px; color:var(--muted); margin-top:10px; }
+
+  footer.note{ margin-top:28px; font-size:12px; color:var(--muted); max-width:70ch; }
+  footer.note code{ font-family:"IBM Plex Mono", monospace; background:var(--surface-2); padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="page">
+    <div>
+      <p class="eyebrow">Compras &middot; insumos</p>
+      <h1>Análise de mercado</h1>
+      <p class="lede">Distribuição de preço e vendedores mais presentes no Mercado Livre, por material — amostra de anúncios, não só o mais barato.</p>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="./comparador-precos.html">Comparador de preços</a>
+      <a class="nav-link" href="./index.html">Precificador 3D</a>
+    </div>
+  </header>
+
+  <p class="updated-at" id="updated-at"></p>
+
+  <div id="materials"></div>
+
+  <footer class="note">
+    Dado do Mercado Livre, via <code>data/analise-mercado.json</code>, atualizado semanalmente por
+    <code>.github/workflows/market-analysis.yml</code>. A Shopee não entra aqui — não existe API
+    pública de busca de mercado para terceiros lá; a leitura de Shopee é qualitativa, feita pela
+    rotina de monitoramento diário por busca na web, fora desta página.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var CATEGORY_LABELS = {
+    filamento_pla: "Filamento PLA", filamento_petg: "Filamento PETG",
+    papelao: "Papelão", plastico_bolha: "Plástico bolha"
+  };
+
+  function formatBRL(cents){
+    if (typeof cents !== "number" || !isFinite(cents)) return "—";
+    return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  function el(tag, className, text){
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function renderMaterial(material){
+    var wrap = el("div", "material");
+    wrap.appendChild(el("h2", null, CATEGORY_LABELS[material.category] || material.category || material.materialId));
+    wrap.appendChild(el("p", "material-name", material.name || material.materialId));
+
+    if (material.error) {
+      wrap.appendChild(el("p", "empty-note", material.error));
+      return wrap;
+    }
+
+    var dist = material.priceDistribution || {};
+    var grid = el("div", "stat-grid");
+    [
+      ["Amostra", material.sampleSize + " anúncios"],
+      ["Mínimo", formatBRL(dist.minCents)],
+      ["Mediana", formatBRL(dist.medianCents)],
+      ["Máximo", formatBRL(dist.maxCents)],
+      ["% em promoção", typeof material.discountRate === "number" ? Math.round(material.discountRate * 100) + "%" : "—"]
+    ].forEach(function(pair){
+      var tile = el("div", "stat-tile");
+      tile.appendChild(el("div", "label", pair[0]));
+      tile.appendChild(el("div", "val", pair[1]));
+      grid.appendChild(tile);
+    });
+    wrap.appendChild(grid);
+
+    if (material.topSellers && material.topSellers.length) {
+      var table = el("table");
+      var thead = el("thead");
+      var headRow = el("tr");
+      ["Vendedor", "Anúncios na amostra"].forEach(function(label){ headRow.appendChild(el("th", null, label)); });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+      var tbody = el("tbody");
+      material.topSellers.forEach(function(seller){
+        var row = el("tr");
+        row.appendChild(el("td", null, seller.sellerName));
+        row.appendChild(el("td", "num", String(seller.listingCount)));
+        tbody.appendChild(row);
+      });
+      table.appendChild(tbody);
+      wrap.appendChild(table);
+    }
+
+    wrap.appendChild(el("p", "sample-note", "Amostra de anúncios de uma busca — não é o catálogo inteiro do marketplace."));
+    return wrap;
+  }
+
+  function render(data){
+    var updatedEl = document.getElementById("updated-at");
+    if (data.generatedAt) {
+      var d = new Date(data.generatedAt);
+      updatedEl.textContent = isNaN(d.getTime()) ? "" : "Atualizado em " + d.toLocaleString("pt-BR");
+    } else {
+      updatedEl.textContent = "Ainda não rodou pela primeira vez.";
+    }
+
+    var container = document.getElementById("materials");
+    container.innerHTML = "";
+    (data.materials || []).forEach(function(material){
+      container.appendChild(renderMaterial(material));
+    });
+  }
+
+  fetch("./data/analise-mercado.json", { cache: "no-store" })
+    .then(function(res){
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(render)
+    .catch(function(err){
+      var container = document.getElementById("materials");
+      container.appendChild(el("p", "empty-note", "Não foi possível carregar data/analise-mercado.json (" + err.message + ")."));
+    });
+})();
+</script>
+</body>
+</html>
