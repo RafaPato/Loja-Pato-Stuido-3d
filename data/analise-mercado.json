@@ -1,33 +1,29 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-09-11T19:39:11.271Z",
   "materials": [
     {
       "materialId": "filamento-pla-1kg",
       "name": "Filamento PLA 1.75mm (1kg)",
       "category": "filamento_pla",
-      "marketplace": "mercado_livre",
-      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+      "error": "HTTP 403 ao buscar \"https://api.mercadolibre.com/sites/MLB/search?q=filamento+pla+1kg+1.75mm&limit=50\""
     },
     {
       "materialId": "filamento-petg-1kg",
       "name": "Filamento PETG 1.75mm (1kg)",
       "category": "filamento_petg",
-      "marketplace": "mercado_livre",
-      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+      "error": "HTTP 403 ao buscar \"https://api.mercadolibre.com/sites/MLB/search?q=filamento+petg+1kg+1.75mm&limit=50\""
     },
     {
       "materialId": "papelao-onda-simples",
       "name": "Caixa de papelão onda simples",
       "category": "papelao",
-      "marketplace": "mercado_livre",
-      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+      "error": "HTTP 403 ao buscar \"https://api.mercadolibre.com/sites/MLB/search?q=caixa+papelao+onda+simples+para+envio&limit=50\""
     },
     {
       "materialId": "plastico-bolha-rolo",
       "name": "Plástico bolha (rolo)",
       "category": "plastico_bolha",
-      "marketplace": "mercado_livre",
-      "error": "Ainda não rodou — falta configurar o secret MERCADO_LIVRE_ACCESS_TOKEN no repositório."
+      "error": "HTTP 403 ao buscar \"https://api.mercadolibre.com/sites/MLB/search?q=plastico+bolha+rolo+para+embalagem&limit=50\""
     }
   ]
 }
