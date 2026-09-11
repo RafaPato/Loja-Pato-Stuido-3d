@@ -41,6 +41,29 @@ navegador entre uma visita e outra.
 Para publicar como página web, ative o GitHub Pages deste repositório apontando para a branch
 `main` / pasta raiz.
 
+## Comparador de preços de insumos
+
+`comparador-precos.html` mostra, por material (filamento PLA, PETG, papelão, plástico bolha), o
+menor preço encontrado entre fornecedores, normalizado por kg/m/unidade para comparar anúncios com
+quantidades diferentes.
+
+- **Dados**: `data/precos.json` — pode ser editado à mão a qualquer momento (cotações com
+  `"source": "manual"` nunca são apagadas automaticamente).
+- **Coleta automática**: `scripts/collect-prices.mjs`, rodado uma vez por dia pelo workflow
+  [`collect-prices.yml`](.github/workflows/collect-prices.yml) (ou manualmente via
+  "Run workflow" na aba Actions). Hoje busca na API pública do Mercado Livre; novos fornecedores
+  entram adicionando um conector em `scripts/lib/connectors/` e um item em
+  `scripts/lib/materials.mjs`.
+  - Se a busca do Mercado Livre responder 403 (a API pode exigir autenticação dependendo do IP/
+    política vigente), registre uma aplicação em https://developers.mercadolivre.com.br, gere um
+    access token e adicione como secret `MERCADO_LIVRE_ACCESS_TOKEN` no repositório — o conector
+    já usa esse token automaticamente quando presente.
+- **Segurança da coleta**: toda requisição de rede passa por `scripts/lib/safe-fetch.mjs`, que só
+  aceita hosts de uma allow-list fixa (definida em cada conector) e resolve/valida o IP de destino
+  antes de conectar, recusando IPs privados/loopback/link-local — proteção contra SSRF, já que o
+  coletor roda com acesso à rede em CI. Rodar `npm test` (ou `node --test scripts/lib/*.test.mjs`)
+  cobre essas validações e a heurística de normalização de unidade.
+
 ## Histórico de versões
 
 | Versão | Pasta | O que tem |

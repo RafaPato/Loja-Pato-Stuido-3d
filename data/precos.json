@@ -1,0 +1,81 @@
+{
+  "updatedAt": "2026-09-11T00:00:00.000Z",
+  "materials": [
+    {
+      "id": "filamento-pla-1kg",
+      "name": "Filamento PLA 1.75mm (1kg)",
+      "category": "filamento_pla",
+      "baseUnit": "kg",
+      "quotes": [
+        {
+          "supplier": "Cadastre seu fornecedor",
+          "title": "Exemplo manual — edite ou remova esta linha",
+          "priceCents": 8990,
+          "quantity": 1,
+          "unit": "kg",
+          "pricePerBaseUnitCents": 8990,
+          "source": "manual",
+          "url": "",
+          "capturedAt": "2026-09-11T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "filamento-petg-1kg",
+      "name": "Filamento PETG 1.75mm (1kg)",
+      "category": "filamento_petg",
+      "baseUnit": "kg",
+      "quotes": [
+        {
+          "supplier": "Cadastre seu fornecedor",
+          "title": "Exemplo manual — edite ou remova esta linha",
+          "priceCents": 10990,
+          "quantity": 1,
+          "unit": "kg",
+          "pricePerBaseUnitCents": 10990,
+          "source": "manual",
+          "url": "",
+          "capturedAt": "2026-09-11T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "papelao-onda-simples",
+      "name": "Caixa de papelão onda simples",
+      "category": "papelao",
+      "baseUnit": "unidade",
+      "quotes": [
+        {
+          "supplier": "Cadastre seu fornecedor",
+          "title": "Exemplo manual — edite ou remova esta linha",
+          "priceCents": 180,
+          "quantity": 1,
+          "unit": "unidade",
+          "pricePerBaseUnitCents": 180,
+          "source": "manual",
+          "url": "",
+          "capturedAt": "2026-09-11T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "plastico-bolha-rolo",
+      "name": "Plástico bolha (rolo)",
+      "category": "plastico_bolha",
+      "baseUnit": "m",
+      "quotes": [
+        {
+          "supplier": "Cadastre seu fornecedor",
+          "title": "Exemplo manual — edite ou remova esta linha",
+          "priceCents": 25,
+          "quantity": 1,
+          "unit": "m",
+          "pricePerBaseUnitCents": 25,
+          "source": "manual",
+          "url": "",
+          "capturedAt": "2026-09-11T00:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}
