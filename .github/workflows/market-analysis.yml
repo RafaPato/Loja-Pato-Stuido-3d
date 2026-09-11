@@ -1,0 +1,46 @@
+name: Análise de mercado (Mercado Livre)
+
+on:
+  schedule:
+    # Toda segunda-feira às 09:00 UTC (~06:00 em Brasília) — análise mais pesada que o log
+    # diário de preço, não precisa rodar todo dia.
+    - cron: "0 9 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Rodar testes
+        run: node --test scripts/lib/*.test.mjs
+
+      - name: Rodar motor de análise de mercado
+        env:
+          MERCADO_LIVRE_ACCESS_TOKEN: ${{ secrets.MERCADO_LIVRE_ACCESS_TOKEN }}
+        run: node scripts/analyze-market.mjs
+
+      - name: Rodar motor de oportunidade de produto
+        env:
+          MERCADO_LIVRE_ACCESS_TOKEN: ${{ secrets.MERCADO_LIVRE_ACCESS_TOKEN }}
+        run: node scripts/analyze-product-opportunities.mjs
+
+      - name: Commitar análises atualizadas (se houver mudança)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/analise-mercado.json data/oportunidades-produto.json
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança na análise — nada para commitar."
+          else
+            git commit -m "chore: atualizar análise de mercado e oportunidades de produto"
+            git push
+          fi
