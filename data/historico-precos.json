@@ -1,0 +1,52 @@
+{
+  "observacoes": [
+    {
+      "date": "2026-09-11",
+      "material_id": "filamento_pla",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Busca do dia achou Voolt3D e GTMax3D mencionados, mas sem par marca+preço+URL confirmável com confiança para uma cotação única — não registrado para evitar número especulativo. GTMax3D aparecia com desconto de ~53-54% só em uma página de Black Friday 2025 (lista.mercadolivre.com.br/filamento-gtmax), não confirmável como promoção ativa hoje."
+    },
+    {
+      "date": "2026-09-11",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG Premium 1kg 1,75mm",
+      "price_cents": 11500,
+      "source_url": "https://maker.artbox3d.com.br/produtos/filamento-voolt3d-petg-premium-1kg-175mm-cor-amarelo/",
+      "store": "ARTBOX3D (maker.artbox3d.com.br)",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": null
+    },
+    {
+      "date": "2026-09-11",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Busca do dia só retornou páginas institucionais dos fornecedores de referência (Milênio, Fenix Paper, Conarte, Officepack), sem preço público de anúncio específico encontrado hoje."
+    },
+    {
+      "date": "2026-09-11",
+      "material_id": "plastico_bolha",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Atco e Bag Brasil apareceram com especificação de produto (ex: rolo 60cm x 10m, 55 microns) mas sem preço em R$ atribuível com confiança nos resultados de busca de hoje."
+    }
+  ]
+}
