@@ -124,6 +124,9 @@
   }
   .reset-btn:hover{ border-color:var(--teal); color:var(--teal); }
   .reset-btn:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+  a.reset-btn{ text-decoration:none; display:inline-block; }
+
+  .header-actions{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
 
   .board{
     display:grid;
@@ -408,7 +411,10 @@
       <h1>Precificador 3D</h1>
       <p class="lede">Some o custo real de imprimir uma peça — filamento, tempo de máquina, falhas, mão de obra e envio — e descubra o preço de venda para a margem que você quer.</p>
     </div>
-    <button class="reset-btn" id="reset-btn" type="button">Restaurar exemplo</button>
+    <div class="header-actions">
+      <a class="reset-btn" href="./comparador-precos.html">Comparar preços de insumos</a>
+      <button class="reset-btn" id="reset-btn" type="button">Restaurar exemplo</button>
+    </div>
   </header>
 
   <div class="board">

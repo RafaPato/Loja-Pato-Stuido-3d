@@ -1,0 +1,12 @@
+{
+  "name": "loja-pato-studio-3d",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "collect-prices": "node scripts/collect-prices.mjs",
+    "test": "node --test scripts/lib/*.test.mjs"
+  }
+}

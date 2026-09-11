@@ -1,0 +1,42 @@
+name: Coletar preços de insumos
+
+on:
+  schedule:
+    # 09:00 UTC ~ 06:00 no horário de Brasília, uma vez por dia.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Rodar testes do coletor
+        run: node --test scripts/lib/*.test.mjs
+
+      - name: Rodar coletor de preços
+        env:
+          # Opcional: só necessário se a API do Mercado Livre passar a exigir autenticação
+          # para este endpoint. Configure em Settings → Secrets and variables → Actions.
+          MERCADO_LIVRE_ACCESS_TOKEN: ${{ secrets.MERCADO_LIVRE_ACCESS_TOKEN }}
+        run: node scripts/collect-prices.mjs
+
+      - name: Commitar preços atualizados (se houver mudança)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/precos.json
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança de preço — nada para commitar."
+          else
+            git commit -m "chore: atualizar preços de insumos automaticamente"
+            git push
+          fi
