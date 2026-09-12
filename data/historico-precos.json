@@ -47,6 +47,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Atco e Bag Brasil apareceram com especificação de produto (ex: rolo 60cm x 10m, 55 microns) mas sem preço em R$ atribuível com confiança nos resultados de busca de hoje."
+    },
+    {
+      "date": "2026-09-12",
+      "material_id": "filamento_pla",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Voolt3D/GTMax3D mencionados com faixa genérica de R$109,15 a R$159,88, sem par marca+preço+URL específico confirmável — não registrado para evitar número especulativo."
+    },
+    {
+      "date": "2026-09-12",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG Premium 1kg 1,75mm",
+      "price_cents": 11500,
+      "source_url": "https://shopee.com.br/Voolt3D-Filamento-PETG-Premium-Para-Impressora-3D-1kg-1-75mm-Varias-Cores-i.410799841.23698640410",
+      "store": "Shopee",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo preço (R$115,00) encontrado ontem via ARTBOX3D — hoje confirmado também na Shopee."
+    },
+    {
+      "date": "2026-09-12",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Busca do dia só retornou caixas de papelão sem marca identificável (fora da lista de referência) na Shopee/Mercado Livre — nenhum anúncio de Milênio, Fenix Paper, Conarte, Officepack ou Clear encontrado hoje."
+    },
+    {
+      "date": "2026-09-12",
+      "material_id": "plastico_bolha",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Nenhum anúncio das marcas de referência (Vinipack, Bag Brasil, Atco, MN Plast) encontrado com preço hoje."
     }
   ]
 }
