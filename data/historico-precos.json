@@ -95,6 +95,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Nenhum anúncio das marcas de referência (Vinipack, Bag Brasil, Atco, MN Plast) encontrado com preço hoje."
+    },
+    {
+      "date": "2026-09-13",
+      "material_id": "filamento_pla",
+      "brand": "GTMax3D",
+      "product": "Filamento PLA Plus 1,75mm 1kg",
+      "price_cents": 9989,
+      "source_url": "https://www.mercadolivre.com.br/filamento-pla-plus-175mm-1kg--varias-cores--gtmax3d/up/MLBU3053262012",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Menor preço confirmado hoje entre marcas de referência; Voolt3D e SunLu apareceram entre R$123,20 e R$124,95."
+    },
+    {
+      "date": "2026-09-13",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG Premium 1kg",
+      "price_cents": 11992,
+      "source_url": "https://produto.mercadolivre.com.br/MLB-3108615428-filamento-petg-premium-1kg-voolt3d-oficial-_JM",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Havia menções a descontos de 33% e 36% no resumo de busca, mas sem marca identificável no mesmo anúncio — não contabilizado como promoção qualificada por falta de confirmação do filtro de marca."
+    },
+    {
+      "date": "2026-09-13",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Fenix Paper, Milênio Embalagens e Conarte continuam operando em modelo B2B por cotação, sem preço público listado — terceiro dia sem dado para este material."
+    },
+    {
+      "date": "2026-09-13",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha rolo 130cm x 100m",
+      "price_cents": 22677,
+      "source_url": "https://www.padovani.com.br/plastico-bolha-rolo-de-130cm-x-100-metros---atco/p",
+      "store": "Padovani",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Primeiro preço confirmado para este material desde o início do log. Rolo maior (100m) que o de referência original (10m) — atenção ao comparar preço por metro, não pelo total do rolo."
     }
   ]
 }
