@@ -143,6 +143,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Primeiro preço confirmado para este material desde o início do log. Rolo maior (100m) que o de referência original (10m) — atenção ao comparar preço por metro, não pelo total do rolo."
+    },
+    {
+      "date": "2026-09-14",
+      "material_id": "filamento_pla",
+      "brand": "GTMax3D",
+      "product": "Filamento PLA Plus 1,75mm 1kg",
+      "price_cents": 9989,
+      "source_url": "https://www.mercadolivre.com.br/filamento-pla-plus-175mm-1kg--varias-cores--gtmax3d/up/MLBU3053262012",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Preço idêntico ao de ontem para este mesmo anúncio — sem mudança detectada."
+    },
+    {
+      "date": "2026-09-14",
+      "material_id": "filamento_petg",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Anúncios de SunLu/GTMax3D encontrados no Mercado Livre, mas o resumo de busca não trouxe preço visível hoje (página exigindo login para exibir valor) — não registrado para evitar número especulativo."
+    },
+    {
+      "date": "2026-09-14",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Quarto dia sem preço público confirmado para marcas de referência — Officepack e Clear Embalagens continuam sem loja online com preço tabelado encontrada."
+    },
+    {
+      "date": "2026-09-14",
+      "material_id": "plastico_bolha",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Só faixa genérica de mercado (R$19 a R$145) sem atribuição a uma marca de referência específica hoje."
     }
   ]
 }
