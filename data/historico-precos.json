@@ -191,6 +191,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Só faixa genérica de mercado (R$19 a R$145) sem atribuição a uma marca de referência específica hoje."
+    },
+    {
+      "date": "2026-09-15",
+      "material_id": "filamento_pla",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Voolt3D (R$127,90, 20% off de R$159,88) e GTMax3D (a partir de R$109,15) mencionados sem URL de anúncio específico confirmável hoje — desconto de 20% também não atinge o limiar de 25% para promoção qualificada."
+    },
+    {
+      "date": "2026-09-15",
+      "material_id": "filamento_petg",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Busca de hoje só retornou listagens internacionais (eBay Alemanha/EUA) para as marcas de referência, sem preço em R$ no Mercado Livre ou Shopee."
+    },
+    {
+      "date": "2026-09-15",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Quinto dia sem preço público confirmado — Fenix Paper e Conarte seguem em modelo B2B por cotação; Milênio, Officepack e Clear não apareceram na busca de hoje."
+    },
+    {
+      "date": "2026-09-15",
+      "material_id": "plastico_bolha",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesma faixa genérica de mercado (R$19 a R$145) de dias anteriores, sem par marca+preço+URL específico hoje."
     }
   ]
 }
