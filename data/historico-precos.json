@@ -239,6 +239,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesma faixa genérica de mercado (R$19 a R$145) de dias anteriores, sem par marca+preço+URL específico hoje."
+    },
+    {
+      "date": "2026-09-16",
+      "material_id": "filamento_pla",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Voolt3D (R$127,90, 20% off de R$159,88) e GTMax3D (R$109,15) mencionados sem URL de anúncio específico confirmável hoje; desconto de 20% abaixo do limiar de 25%."
+    },
+    {
+      "date": "2026-09-16",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Preto 1kg (fabricação nacional)",
+      "price_cents": 9990,
+      "source_url": "https://www.mercadolivre.com.br/filamento-petg-hf-preto-1kg-impresso-fabricaco-nacional-voolt3d/p/MLB31002299",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Menor preço confirmado hoje; outras cores/linhas Voolt3D variaram entre R$99,90 e R$126,49 sem desconto anunciado no mesmo anúncio."
+    },
+    {
+      "date": "2026-09-16",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Sexto dia sem preço público confirmado para marcas de referência."
+    },
+    {
+      "date": "2026-09-16",
+      "material_id": "plastico_bolha",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Achei rolo 1,30x100m de R$57,90 por R$46,05 (~20,5% off, abaixo do limiar) em categoria filtrada por Atco no Mercado Livre, mas sem URL de anúncio específico nem confirmação de que esse preço é da Atco e não de outra marca (GG Embalagens, Embralumi, Horizon, Storm apareceram na mesma categoria) — não registrado."
     }
   ]
 }
