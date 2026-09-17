@@ -287,6 +287,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Achei rolo 1,30x100m de R$57,90 por R$46,05 (~20,5% off, abaixo do limiar) em categoria filtrada por Atco no Mercado Livre, mas sem URL de anúncio específico nem confirmação de que esse preço é da Atco e não de outra marca (GG Embalagens, Embralumi, Horizon, Storm apareceram na mesma categoria) — não registrado."
+    },
+    {
+      "date": "2026-09-17",
+      "material_id": "filamento_pla",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Ferramenta de busca instável hoje (erro 'unavailable' em várias tentativas) — sem dado confiável coletado para este material."
+    },
+    {
+      "date": "2026-09-17",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Preto 1kg (fabricação nacional)",
+      "price_cents": 9990,
+      "source_url": "https://www.mercadolivre.com.br/filamento-petg-hf-preto-1kg-impresso-fabricaco-nacional-voolt3d/p/MLB31002299",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio e preço confirmados ontem — estável por 2 dias seguidos."
+    },
+    {
+      "date": "2026-09-17",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Ferramenta de busca instável hoje — sétimo dia sem preço público confirmado para marcas de referência."
+    },
+    {
+      "date": "2026-09-17",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) n.10 fácil 60cmx10m",
+      "price_cents": 3750,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-n-10-facil-60cmx10m-100800-atco-pt-1-bb/044745",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Primeiro preço confirmado no tamanho de referência original (60cmx10m, mais próximo do rolo pequeno que o de 130x100m do dia 13/09) — bom ponto de comparação por metro."
     }
   ]
 }
