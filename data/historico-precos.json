@@ -335,6 +335,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Primeiro preço confirmado no tamanho de referência original (60cmx10m, mais próximo do rolo pequeno que o de 130x100m do dia 13/09) — bom ponto de comparação por metro."
+    },
+    {
+      "date": "2026-09-18",
+      "material_id": "filamento_pla",
+      "brand": "SunLu",
+      "product": "Filamento PLA Classic 1kg",
+      "price_cents": 12320,
+      "source_url": "https://produto.mercadolivre.com.br/MLB-4078237165-filamento-impresso-3d-sunlu-pla-classic-varias-cores-1kg-_JM",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Menor preço confirmado hoje com marca+preço+URL; GTMax3D aparecia mais barato (~R$109,15) mas sem URL de anúncio específico confirmável — não registrado."
+    },
+    {
+      "date": "2026-09-18",
+      "material_id": "filamento_petg",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Busca de hoje só resgatou URLs de produto já conhecidas na Shopee sem preço atualizado, além de comentários genéricos sobre cupons não vinculados a um preço confirmado — não registrado para evitar número especulativo."
+    },
+    {
+      "date": "2026-09-18",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Oitavo dia sem preço público confirmado — Fenix Paper, Conarte, Milênio Embalagens, Officepack e Clear Embalagens seguem sem preço tabelado online (modelo B2B por cotação)."
+    },
+    {
+      "date": "2026-09-18",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Opção Atco mais barata encontrada hoje na Kalunga (rolo pequeno). Outras opções Atco na mesma loja hoje: 29 micras 60x20m R$34,70 (044744); 40 micras 60x10m R$37,50 (044745, igual ao de 17/09); 25 micras 130x50m R$118,00 (044743)."
     }
   ]
 }
