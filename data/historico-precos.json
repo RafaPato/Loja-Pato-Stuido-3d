@@ -383,6 +383,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Opção Atco mais barata encontrada hoje na Kalunga (rolo pequeno). Outras opções Atco na mesma loja hoje: 29 micras 60x20m R$34,70 (044744); 40 micras 60x10m R$37,50 (044745, igual ao de 17/09); 25 micras 130x50m R$118,00 (044743)."
+    },
+    {
+      "date": "2026-09-19",
+      "material_id": "filamento_pla",
+      "brand": "GTMax3D",
+      "product": "Filamento PLA Plus 1,75mm 1kg",
+      "price_cents": 14500,
+      "source_url": "https://loja3d.com.br/filamento-pla-plus-laranja-gtmax-3d-1-75mm-1kg/",
+      "store": "Loja 3D",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Preço confirmado igual em Preto e Laranja na mesma loja hoje. No Mercado Livre havia menções de R$109,15 a R$138,90 (com 16% off) para GTMax3D, mas sem confirmação do preço exato de nenhum anúncio específico — não registrado para evitar número especulativo."
+    },
+    {
+      "date": "2026-09-19",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Preto 1kg (fabricação nacional)",
+      "price_cents": 9989,
+      "source_url": "https://www.wemak.com.br/produtos/filamento-petg-hf-preto-1kg-impressao-fabricacao-nacional-voolt3d/",
+      "store": "Wemak",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Preço praticamente igual ao confirmado nos dias 16-17/09 no Mercado Livre para o mesmo produto (Voolt3D PETG HF Preto), agora via revendedor Wemak."
+    },
+    {
+      "date": "2026-09-19",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Nono dia sem preço público confirmado — Milênio Embalagens, Fenix Paper e Conarte seguem em modelo B2B por cotação; Officepack não apareceu na busca de hoje."
+    },
+    {
+      "date": "2026-09-19",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio e preço confirmados ontem — estável."
     }
   ]
 }
