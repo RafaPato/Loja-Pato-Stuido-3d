@@ -431,6 +431,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio e preço confirmados ontem — estável."
+    },
+    {
+      "date": "2026-09-20",
+      "material_id": "filamento_pla",
+      "brand": "Voolt3D",
+      "product": "Filamento PLA cor Azul 1kg 1,75mm",
+      "price_cents": 12390,
+      "source_url": "https://www.mercadolivre.com.br/voolt3d-pla-filamento-pla-cor-azul-175mm-1kg/p/MLB31754806",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Menor preço confirmado hoje com marca+preço+URL. Outras variações Voolt3D/GTMax3D apareceram entre R$95 e R$269 sem confirmação de preço/URL específico para cada anúncio — não registradas."
+    },
+    {
+      "date": "2026-09-20",
+      "material_id": "filamento_petg",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Anúncios de Voolt3D e GTMax3D encontrados no Mercado Livre, mas as páginas exigiam login para exibir preço na busca de hoje — não registrado para evitar número especulativo."
+    },
+    {
+      "date": "2026-09-20",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Décimo dia sem preço público confirmado — Fenix Paper, Conarte e Milênio Embalagens seguem em modelo B2B por cotação, sem preço tabelado online."
+    },
+    {
+      "date": "2026-09-20",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1970,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio dos dias 18-19/09, mas preço subiu de R$14,90 para R$19,70 hoje — variação normal de preço de loja, sem indicação de promoção."
     }
   ]
 }
