@@ -479,6 +479,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio dos dias 18-19/09, mas preço subiu de R$14,90 para R$19,70 hoje — variação normal de preço de loja, sem indicação de promoção."
+    },
+    {
+      "date": "2026-09-21",
+      "material_id": "filamento_pla",
+      "brand": "Voolt3D",
+      "product": "Filamento PLA Rosa Bebê Velvet 1kg Premium Nacional",
+      "price_cents": 11990,
+      "source_url": "https://www.mercadolivre.com.br/filamento-pla-rosa-beb-velvet-1kg-premium-nacional-175m-3d/p/MLB44317623",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Menor preço confirmado hoje com marca+preço+URL. Um resultado de busca mencionou a mesma linha Rosa Bebê a R$99,90 (de R$140,80, 29% off), mas não consegui confirmar se era o mesmo anúncio específico — não registrado por falta de confirmação direta na página do produto."
+    },
+    {
+      "date": "2026-09-21",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG Premium Translúcido 1kg (cor Natural translúcido)",
+      "price_cents": 9990,
+      "source_url": "https://www.mercadolivre.com.br/filamento-petg-premium-translucido-1kg-voolt3d-cor-natural-translucido/p/MLB24643160",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Preço confirmado direto na página do anúncio. Outras cores/linhas Voolt3D e GTMax3D apareceram entre R$109 e R$140 sem confirmação de preço/URL específico."
+    },
+    {
+      "date": "2026-09-21",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Décimo primeiro dia sem preço público confirmado — busca de hoje só retornou páginas genéricas de categoria no Mercado Livre/Shopee, sem anúncio de nenhum dos fornecedores de referência."
+    },
+    {
+      "date": "2026-09-21",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio voltou a mostrar R$14,90 hoje (era R$19,70 ontem) — a própria busca sinalizou inconsistência entre R$14,90 e R$19,70 para este SKU; preço tratado como instável nesta loja, não como promoção."
     }
   ]
 }
