@@ -527,6 +527,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio voltou a mostrar R$14,90 hoje (era R$19,70 ontem) — a própria busca sinalizou inconsistência entre R$14,90 e R$19,70 para este SKU; preço tratado como instável nesta loja, não como promoção."
+    },
+    {
+      "date": "2026-09-22",
+      "material_id": "filamento_pla",
+      "brand": "GTMax3D",
+      "product": "Filamento PLA Plus 1,75mm 1kg Mármore Cinza",
+      "price_cents": 14500,
+      "source_url": "https://loja3d.com.br/filamento-pla-plus-cinza-gtmax-3d-1-75mm-1kg/",
+      "store": "Loja 3D",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo preço confirmado nos dias 19/09 (variantes Preto/Laranja) — estável nesta loja. No Mercado Livre havia menção de Voolt3D a R$116,72 (20% off de R$145,90), mas sem confirmação do preço exato no anúncio específico."
+    },
+    {
+      "date": "2026-09-22",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG Premium Translúcido 1kg (cor Natural translúcido)",
+      "price_cents": 9990,
+      "source_url": "https://www.mercadolivre.com.br/filamento-petg-premium-translucido-1kg-voolt3d-cor-natural-translucido/p/MLB24643160",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio e preço confirmados ontem — estável."
+    },
+    {
+      "date": "2026-09-22",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Décimo segundo dia sem preço público confirmado — busca de hoje trouxe outros fabricantes de caixa (F.D. Box, Center Caixas) fora da lista de referência; Milênio, Fenix Paper, Conarte, Officepack e Clear seguem sem preço tabelado online."
+    },
+    {
+      "date": "2026-09-22",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio e preço confirmados ontem (R$14,90) — estável, sem repetir a oscilação para R$19,70 vista no dia 20/09."
     }
   ]
 }
