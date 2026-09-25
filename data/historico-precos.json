@@ -671,6 +671,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio voltou a R$14,90 hoje — segue oscilando com R$19,70 em dias alternados nesta loja."
+    },
+    {
+      "date": "2026-09-25",
+      "material_id": "filamento_pla",
+      "brand": "Voolt3D",
+      "product": "Filamento PLA cor Azul 1kg 1,75mm",
+      "price_cents": 12390,
+      "source_url": "https://www.mercadolivre.com.br/voolt3d-pla-filamento-pla-cor-azul-175mm-1kg/p/MLB31754806",
+      "store": "Mercado Livre",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio voltou ao preço cheio (R$123,90) hoje, sem desconto anunciado — o desconto de 20% visto nos dias 23-24/09 não aparece mais."
+    },
+    {
+      "date": "2026-09-25",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Natural Translúcido High Fluidity Premium 1kg",
+      "price_cents": 8937,
+      "source_url": "https://voolt3d.com.br/produtos/filamento-petg-hf-natural-translucido-high-fluidity-premium-1kg/",
+      "store": "Voolt3D (site oficial)",
+      "is_promo": true,
+      "discount_pct": 36,
+      "note": "Promoção qualificada segue ativa (3º dia): de R$139,99 por R$89,37 (36% off), mesmo anúncio confirmado nos dias 23-24/09."
+    },
+    {
+      "date": "2026-09-25",
+      "material_id": "papelao",
+      "brand": null,
+      "product": null,
+      "price_cents": null,
+      "source_url": null,
+      "store": null,
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Décimo quinto dia sem preço público confirmado — busca de hoje só trouxe páginas genéricas de categoria no Mercado Livre/Shopee; nenhum dos fornecedores de referência apareceu."
+    },
+    {
+      "date": "2026-09-25",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio, R$14,90 confirmado novamente hoje — segue oscilando com R$19,70 em dias alternados nesta loja."
     }
   ]
 }
