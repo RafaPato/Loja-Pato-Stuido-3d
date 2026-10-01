@@ -959,6 +959,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio, R$14,90 confirmado novamente hoje; busca também retornou variação R$16,70 (diferente do R$19,70 visto em dias anteriores) — segue com a mesma instabilidade de preço nesta loja, valor mais citado registrado."
+    },
+    {
+      "date": "2026-10-01",
+      "material_id": "filamento_pla",
+      "brand": "Voolt3D",
+      "product": "Filamento PLA Azul Velvet High Speed Premium 1Kg",
+      "price_cents": 8937,
+      "source_url": "https://www.voolt3d.com.br/produtos/filamento-pla-azul-velvet-premium/",
+      "store": "Voolt3D (site oficial)",
+      "is_promo": true,
+      "discount_pct": 31,
+      "note": "Promoção qualificada: de R$129,99 por R$89,37 (31% off) no próprio anúncio do site oficial — menor preço confirmado hoje entre as marcas de referência, mais barato que o anúncio Azul MLB31754806 no Mercado Livre (R$123,90, 12% off de R$140,80, igual a ontem). Outra linha Voolt3D (PLA Azul High Speed Premium) aparecia a R$95,58 (24% off de R$124,99), também abaixo do limiar de 25%."
+    },
+    {
+      "date": "2026-10-01",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Natural Translúcido High Fluidity Premium 1kg",
+      "price_cents": 10516,
+      "source_url": "https://voolt3d.com.br/produtos/filamento-petg-hf-natural-translucido-high-fluidity-premium-1kg/",
+      "store": "Voolt3D (site oficial)",
+      "is_promo": false,
+      "discount_pct": 25,
+      "note": "Mesmo preço de ontem (de R$139,99 por R$105,16, rotulado '25% OFF' mas calculado em ~24,9% — abaixo do limiar); produto consta como esgotado na página hoje. A promoção de 36% off (R$89,37) vista em outras variantes PETG HF não se repete nesta cor (Natural Translúcido) hoje."
+    },
+    {
+      "date": "2026-10-01",
+      "material_id": "papelao",
+      "brand": "Officepack",
+      "product": "Caixa Office Pack Pequena 20x14x9cm",
+      "price_cents": 220,
+      "source_url": "https://www.ouropak.com.br/produto/caixa-officepack-pequena",
+      "store": "Ouropak (revenda Officepack)",
+      "is_promo": false,
+      "discount_pct": 17,
+      "note": "Primeiro preço confirmado para este material desde o início do log (21 dias sem dado) — via revenda Ouropak, não loja direta da Officepack. De R$2,66 por R$2,20 (~17% off, abaixo do limiar de 25%). Preço unitário de caixa pequena, não comparável a cotações B2B de atacado em volume."
+    },
+    {
+      "date": "2026-10-01",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1970,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo SKU com três valores diferentes em páginas distintas do site hoje (R$19,70, R$16,70, R$14,90) — mesma instabilidade de listagem duplicada observada desde 18/09; registrado o valor da busca principal (R$19,70)."
     }
   ]
 }
