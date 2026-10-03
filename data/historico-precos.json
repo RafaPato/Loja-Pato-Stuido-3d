@@ -1055,6 +1055,54 @@
       "is_promo": false,
       "discount_pct": null,
       "note": "Mesmo anúncio, R$14,90 confirmado hoje na página principal do produto — segue a mesma instabilidade de listagem entre R$14,90 e R$19,70 observada desde 18/09."
+    },
+    {
+      "date": "2026-10-03",
+      "material_id": "filamento_pla",
+      "brand": "Voolt3D",
+      "product": "Filamento PLA Azul Velvet High Speed Premium 1Kg",
+      "price_cents": 8937,
+      "source_url": "https://www.voolt3d.com.br/produtos/filamento-pla-azul-velvet-premium/",
+      "store": "Voolt3D (site oficial)",
+      "is_promo": true,
+      "discount_pct": 31,
+      "note": "Promoção qualificada segue ativa (3º dia): de R$129,99 por R$89,37 (31% off), mesmo anúncio confirmado nos dias 01-02/10. MLB31754806 (Mercado Livre) seguia em R$123,90 (12% off)."
+    },
+    {
+      "date": "2026-10-03",
+      "material_id": "filamento_petg",
+      "brand": "Voolt3D",
+      "product": "Filamento PETG HF Verde High Fluidity Premium 1Kg",
+      "price_cents": 7673,
+      "source_url": "https://voolt3d.com.br/produtos/filamento-petg-hf-verde-high-fluidity-premium-1kg/",
+      "store": "Voolt3D (site oficial)",
+      "is_promo": true,
+      "discount_pct": 45,
+      "note": "Promoção qualificada segue ativa (2º dia): de R$139,99 por R$76,73 (45% off), mesmo anúncio confirmado ontem — segue o maior desconto do log."
+    },
+    {
+      "date": "2026-10-03",
+      "material_id": "papelao",
+      "brand": "Officepack",
+      "product": "Caixa Office Pack Pequena 20x14x9cm",
+      "price_cents": 220,
+      "source_url": "https://www.ouropak.com.br/produto/caixa-officepack-pequena",
+      "store": "Ouropak (revenda Officepack)",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo preço confirmado ontem e anteontem (R$2,20) — estável."
+    },
+    {
+      "date": "2026-10-03",
+      "material_id": "plastico_bolha",
+      "brand": "Atco",
+      "product": "Plástico bolha (40 micras) fácil 40cmx5m",
+      "price_cents": 1490,
+      "source_url": "https://www.kalunga.com.br/prod/plastico-bolha-40-micras-facil-40cmx5m-100802-atco-bb-1-un/044764",
+      "store": "Kalunga",
+      "is_promo": false,
+      "discount_pct": null,
+      "note": "Mesmo anúncio, R$14,90 confirmado hoje — segue a mesma instabilidade entre R$14,90 e R$19,70 observada desde 18/09."
     }
   ]
 }
